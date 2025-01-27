@@ -10,34 +10,51 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
 
-  <artifactId>webapp</artifactId>
-  <packaging>war</packaging>
-  <name>Webapp</name>
-  <description>Webapp.</description>
+  <artifactId>server</artifactId>
+  <packaging>jar</packaging>
+  <name>Server</name>
+  <description>Logic.</description>
 
   <build>
     <finalName>${project.artifactId}</finalName>
 
+    <!-- Upgrade maven-compiler-plugin to 3.8.1 or higher -->
     <plugins>
       <plugin>
-        <groupId>org.mortbay.jetty</groupId>
-        <artifactId>jetty-maven-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version> <!-- New plugin version -->
+        <configuration>
+          <source>17</source> <!-- Java 17 -->
+          <target>17</target> <!-- Java 17 -->
+        </configuration>
       </plugin>
     </plugins>
   </build>
 
   <dependencies>
-
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <scope>provided</scope>
+      <groupId>junit</groupId>
+      <artifactId>junit-dep</artifactId>
+      <scope>test</scope>
     </dependency>
 
     <dependency>
-      <groupId>javax.servlet.jsp</groupId>
-      <artifactId>jsp-api</artifactId>
-      <scope>provided</scope>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-library</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
